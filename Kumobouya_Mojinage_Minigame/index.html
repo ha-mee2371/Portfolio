@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="TemplateData/style.css">
 
     <script>
-      window.setupFirebase = function(c) { console.log("Waiting for Firebase module..."); };
+      window.setupFirebase = function(c) { console.log("Firebase setup called (Skipped: Manual init in HTML)"); };
       window.sendFeedback = function(u, m) { console.warn("Firebase module not loaded yet!"); };
     </script>
 
@@ -16,18 +16,24 @@
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
       import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+      const firebaseConfig = {
+        apiKey: "AIzaSyBnAzfj1-kkfeBas0jz2ZQuBLtzvfrw1SE",
+        authDomain: "kumomojigameprod.firebaseapp.com",
+        projectId: "kumomojigameprod",
+        storageBucket: "kumomojigameprod.firebasestorage.app",
+        messagingSenderId: "340410218586",
+        appId: "1:340410218586:web:e606999a62c8d99c0e8063"
+      };
+
       let db;
 
-      window.setupFirebase = function(configJson) {
-        try {
-          const config = JSON.parse(configJson);
-          const app = initializeApp(config);
-          db = getFirestore(app);
-          console.log("Firebase initialized!");
-        } catch (e) {
-          console.error("Firebase init error:", e);
-        }
-      };
+      try {
+        const app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+        console.log("Firebase initialized from HTML successfully!");
+      } catch (e) {
+        console.error("Firebase init error:", e);
+      }
 
       window.sendFeedback = function(userName, comment) {
         if (!db) {
@@ -39,8 +45,8 @@
           content: comment,
           timestamp: serverTimestamp()
         })
-        .then(() => console.log("Success!"))
-        .catch((e) => console.error("Error:", e));
+        .then(() => console.log("Feedback sent: Success!"))
+        .catch((e) => console.error("Firebase write error:", e));
       };
     </script>
   </head>

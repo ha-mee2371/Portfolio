@@ -48,14 +48,15 @@ Ver1.0: Release!!!
 
 ## 📚 学習における注力ポイント
 - 試行錯誤したギミック: 物理演算やお邪魔バーのランダム生成などを活用し、ランダム性の高いゲーム性を実現。  
-- データの永続化: スコアやフィードバックなどの要素をサーバーやDBを介して保存することで、外部システムとの連携や基礎的な仕組みを網羅。  
+- データの永続化: スコアやフィードバックなどの要素をサーバーやDBを介して保存することで、外部システムとの連携や基礎的な仕組みを網羅。
+- 日本語入力環境の改善: WebGLの標準仕様では日本語を入力することが困難であり、これを可能にするため外部ライブラリを導入。
 
 その他、詳細な開発ログについては[こちら](https://github.com/ha-mee2371/Kumobouya_MojiNage_MiniGame#readme)をご覧ください。  
 ※別リポジトリのREADMEを開きます。  
 
 ## 🍀使用技術・素材  
 ### 🛠使用技術  
-C# / HTML5 / Unity 6 / Unity Leaderboards / Firebase / Visual Studio Code 1.118.1 / GitHub / Google AI (Gemini)  
+C# / HTML5 / Unity 6 / Unity Leaderboards / Firebase / Visual Studio Code 1.118.1 / GitHub / WebGLInput (by kou-yeung) / Google AI (Gemini)  
 
 ### 🔖フォント  
 - [うずらフォント](http://azukifont.com/)  
@@ -65,9 +66,9 @@ C# / HTML5 / Unity 6 / Unity Leaderboards / Firebase / Visual Studio Code 1.118.
 - デバフ発動時のにんにんくもぼうや：きみどりちゃ  
 - フリーモード時のポップコーンくもぼうや：しゃな  
 
-- ロゴ：Gemini（Google AI）  
-- あしらい：Gemini（Google AI）  
-- バスケットゴール：Gemini（Google AI）  
+- ロゴ：Google AI (Gemini)  
+- あしらい：Google AI (Gemini)  
+- バスケットゴール：Google AI (Gemini)  
 
 ### 🔊BGM・SE・voice  
 - 実装検討中  

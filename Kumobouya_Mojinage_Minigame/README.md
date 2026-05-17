@@ -4,7 +4,7 @@
 
 「くもぼうや」とは、友人との会話中に生まれたオリジナルキャラクターです。  
 会話の中で頻出する「なんやて」というワードをゲームのテーマにしました。
-<img width="171" height="194" alt="17b2ae1c-483b-45f0-846d-4fc290364ce8" src="https://github.com/user-attachments/assets/90ba5fa6-3ff6-4729-8905-275ca6c480e0" />
+<img src="LINE.jpg" width="171" alt="友人との会話画面">
  
 
 ## 🎮 遊び方 

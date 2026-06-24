@@ -12,51 +12,159 @@
 <body>
 
 <div class="outer">
+  <!-- ヘッダーチェッカー柄 -->
   <div class="checker" id="checker-top"></div>
 
   <div class="inner">
+    <!-- HERO -->
     <div class="hero">
       <div class="hero-tag">WELCOME TO MY LIFE LOG</div>
-      <a class="badge-link" href="https://github.com/ha-mee2371/Portfolio" target="_blank" rel="noopener">
-        <div class="badge-num">1,148<br>MILES</div>
-      </a>
-      <div class="hero-title">PORTFOLIO<br><span class="red">COZY DINER</span></div>
+      <div class="hero-top-row">
+        <div class="hero-title">PORTFOLIO<br><span class="red">COZY DINER</span></div>
+        <!-- 画像スペース：open-badge.png を差し替えてね / 将来ギミック用空ボタン -->
+        <button style="background:none;border:none;padding:0;cursor:pointer;" aria-label="OPEN 24 HOURS">
+          <img class="open-badge-img" src="open-badge.png" alt="OPEN 24 HOURS">
+        </button>
+      </div>
       <div class="hero-bottom">
         <div class="hero-sub">勉強の記録や成果物、その他趣味のこと。気ままに更新中。</div>
         <div class="hero-note">※当サイトは個人のポートフォリオサイトであり、実際の飲食店ではありません。</div>
       </div>
     </div>
 
+    <!-- MENU -->
     <div class="section-wrap">
       <div class="section-label">— MENU —</div>
-      <div class="menu-list">
-        <div class="menu-card"><div class="menu-title">ABOUT</div><div class="menu-sub">自己紹介</div></div>
-        <div class="menu-card"><div class="menu-title">WORKS</div><div class="menu-sub">プログラミング学習の成果物など</div></div>
-        <div class="menu-card"><div class="menu-title">STUDY</div><div class="menu-sub">勉強内容の備忘録</div></div>
-        <div class="menu-card"><div class="menu-title">SNAP</div><div class="menu-sub">日記…いや雑記？</div></div>
-        <div class="menu-card"><div class="menu-title">LIBRARY</div><div class="menu-sub">お気に入りの読了本</div></div>
-        <div class="menu-card"><div class="menu-title">TEA</div><div class="menu-sub">紅茶の購入履歴</div></div>
-        <div class="menu-card"><div class="menu-title">TRAVEL MAP</div><div class="menu-sub">構想中！作れたらいいなぁ…</div></div>
+
+      <!-- ABOUT アコーディオン（横幅フル） -->
+      <div class="accordion-card">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-title-row">
+            <div class="menu-title">ABOUT</div>
+            <div class="menu-sub">自己紹介</div>
+          </div>
+          <div class="accordion-arrow"><span class="arrow-icon">▼</span></div>
+        </div>
+        <div class="accordion-body">
+          <!-- ここにABOUTの内容を入れてね -->
+          自己紹介の内容がここに入ります。
+        </div>
+      </div>
+
+      <!-- WORKS / STUDY (2列) -->
+      <div class="menu-grid-2">
+        <div class="menu-card">
+          <div class="menu-title">WORKS</div>
+          <div class="menu-sub">プログラミング学習の成果物など</div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-title">STUDY</div>
+          <div class="menu-sub">勉強内容の備忘録</div>
+        </div>
+      </div>
+
+      <!-- LIBRARY / TEA (2列) -->
+      <div class="menu-grid-2">
+        <div class="menu-card">
+          <div class="menu-title">LIBRARY</div>
+          <div class="menu-sub">お気に入りの読了本</div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-title">TEA</div>
+          <div class="menu-sub">紅茶の購入履歴</div>
+        </div>
+      </div>
+
+      <!-- DRIVE IN画像 ＋ SNAP / TRAVEL MAP -->
+      <div class="menu-bottom-row">
+        <!-- 画像スペース：drive-in.png を差し替えてね -->
+        <div class="drive-in-img-wrap">
+          <img class="drive-in-img" src="drive-in.png" alt="DRIVE IN">
+        </div>
+        <!-- 右側：SNAP / TRAVEL MAP 縦2枚 -->
+        <div class="menu-side-stack">
+          <div class="menu-card">
+            <div class="menu-title">SNAP</div>
+            <div class="menu-sub">日記…いや雑記？</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-title">TRAVEL MAP</div>
+            <div class="menu-sub">構想中！作れたらいいなぁ…</div>
+          </div>
+        </div>
       </div>
 
       <div class="spacer"></div>
 
-      <div class="section-label">— latest order —</div>
-      <div class="latest-main">
-        <div class="latest-eyebrow">— —</div>
-        <div class="latest-title">記事を準備中…</div>
+      <!-- LATEST ORDER -->
+      <div class="section-label">— LATEST ORDER —</div>
+
+      <!-- 記事リスト + HOT&FRESH画像 -->
+      <div class="latest-top-row">
+        <div class="latest-list">
+          <div class="latest-item">
+            <div class="latest-date">· 2026/5/2</div>
+            <div class="latest-item-title">記事を準備中…</div>
+          </div>
+          <div class="latest-item">
+            <div class="latest-date">· 2026/3/31</div>
+            <div class="latest-item-title">記事を準備中…</div>
+          </div>
+        </div>
+        <!-- 画像スペース：hot-fresh.png を差し替えてね（装飾のみ） -->
+        <div class="hot-fresh-img-wrap">
+          <img class="hot-fresh-img" src="hot-fresh.png" alt="HOT & FRESH">
+        </div>
       </div>
-      <div class="mini-list">
-        <div class="mini-card"><div class="mini-label">— —</div><div class="mini-title">記事を準備中…</div></div>
-        <div class="mini-card"><div class="mini-label">— —</div><div class="mini-title">記事を準備中…</div></div>
-        <div class="mini-card"><div class="mini-label">— —</div><div class="mini-title">記事を準備中…</div></div>
-      </div>
+
     </div>
   </div>
 
-  <div class="checker" id="checker-bot"></div>
+  <!-- FOOTER DINER -->
+  <!-- 画像スペース：diner.png を差し替えてね -->
+  <div class="footer-diner">
+    <div style="position:relative;">
+      <img class="diner-img" src="diner.png" alt="PORTFOLIO COZY DINER">
+      <!-- diner.png の「WRITTEN BY」文字の位置に合わせて top の値を調整してね -->
+      <a
+        href="https://github.com/ha-mee2371/Portfolio"
+        target="_blank"
+        rel="noopener"
+        style="
+          position: absolute;
+          top: 45%;
+          left: 50%;
+          transform: translateX(-50%);
+          font-family: 'Special Elite', serif;
+          font-size: 11px;
+          color: #fff;
+          background: #2563eb;
+          text-decoration: underline;
+          padding: 3px 10px;
+          border-radius: 3px;
+          white-space: nowrap;
+          letter-spacing: 1px;
+        "
+      >WRITTEN BY ha-mee2371</a>
+    </div>
+  </div>
+
+  <!-- フッターチェッカー柄（地面） -->
+  <div class="footer-checker-wrap">
+    <div class="footer-checker checker" id="checker-bot"></div>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
+<script>
+  // アコーディオン開閉
+  function toggleAccordion(header) {
+    const body = header.nextElementSibling;
+    const arrow = header.querySelector('.accordion-arrow');
+    body.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+</script>
 </body>
 </html>

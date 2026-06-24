@@ -1,106 +1,78 @@
+/* ===== RESET & BASE ===== */
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   background: #faf6ee;
 }
-
 .outer {
   background: #faf6ee;
   overflow: hidden;
 }
 
+/* ===== CHECKER ===== */
 .checker {
   display: grid;
   width: 100%;
   overflow: hidden;
 }
-
 .checker-cell.b {
   background: #1a1a1a;
 }
-
 .checker-cell.w {
   background: #faf6ee;
 }
 
+/* ===== INNER ===== */
 .inner {
   max-width: 430px;
   margin: 0 auto;
 }
 
+/* ===== HERO ===== */
 .hero {
-  padding: 24px 20px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto auto;
-  gap: 0 16px;
+  padding: 24px 20px 16px;
   background: #faf6ee;
 }
-
 .hero-tag {
   font-size: 11px;
   color: #1a1a1a;
   letter-spacing: 3px;
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   font-family: 'Special Elite', serif;
-  grid-column: 1;
-  grid-row: 1;
-  align-self: end;
 }
-
-.badge-link {
-  grid-column: 2;
-  grid-row: 1 / 3;
-  align-self: center;
+.hero-top-row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
-  background: #cc2222;
-  border-radius: 50%;
-  border: 3px solid #1a1a1a;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.2s;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
 }
-
-.badge-link:hover {
-  background: #aa1111;
-}
-
-.badge-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 21px;
-  color: #fff;
-  line-height: 1;
-  text-align: center;
-}
-
 .hero-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 44px;
   color: #1a1a1a;
   line-height: 1;
-  margin-bottom: 8px;
-  grid-column: 1;
-  grid-row: 2;
 }
-
 .hero-title .red {
   color: #cc2222;
 }
 
-.hero-bottom {
-  grid-column: 1 / 3;
-  grid-row: 3;
+/* OPEN 24 HOURS 画像スペース */
+.open-badge-img {
+  flex-shrink: 0;
+  width: 90px;
+  height: 60px;
+  object-fit: contain;
+  cursor: pointer;
+  /* 将来のギミック用に空ボタンとして配置 */
 }
 
+.hero-bottom {
+  margin-top: 4px;
+}
 .hero-sub {
   font-size: 11px;
   color: #777;
@@ -109,19 +81,18 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .hero-note {
   font-size: 9px;
-  color: #bbb;
+  color: #a0a0a0;
   margin-top: 5px;
   font-family: 'Special Elite', serif;
 }
 
+/* ===== SECTION WRAP ===== */
 .section-wrap {
   padding: 8px 20px 24px;
   background: #faf6ee;
 }
-
 .section-label {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 22px;
@@ -132,29 +103,31 @@ body {
   padding-bottom: 6px;
 }
 
-.menu-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.menu-card {
+/* ===== ABOUT (アコーディオン) ===== */
+.accordion-card {
   background: #fff;
-  border: 1px solid #d9d2c5;
-  border-left: 3px solid #1a1a1a;
+  border: 1px solid #1a1a1a;
+  border-left: 4px solid #1a1a1a;
   border-radius: 6px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 12px 16px;
   cursor: pointer;
-  transition: border-left-color 0.15s;
+  user-select: none;
+}
+.accordion-header:hover {
+  background: #f0ece4;
+}
+.accordion-title-row {
   display: flex;
   align-items: baseline;
   gap: 12px;
 }
-
-.menu-card:hover {
-  border-left-color: #cc2222;
-}
-
 .menu-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 16px;
@@ -162,15 +135,137 @@ body {
   letter-spacing: 1px;
   flex-shrink: 0;
 }
-
 .menu-sub {
   font-size: 11px;
   color: #999;
   font-family: 'Special Elite', serif;
 }
+.accordion-arrow {
+  font-size: 11px;
+  color: #1a1a1a;
+  font-family: 'Special Elite', serif;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.arrow-icon {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.accordion-arrow.open .arrow-icon {
+  transform: rotate(180deg);
+}
+.accordion-body {
+  display: none;
+  padding: 12px 16px 14px;
+  font-size: 12px;
+  color: #555;
+  font-family: 'Special Elite', serif;
+  line-height: 1.7;
+  border-top: 1px dashed #d9d2c5;
+}
+.accordion-body.open {
+  display: block;
+}
 
+/* ===== MENU GRID ===== */
+.menu-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.menu-card {
+  background: #fff;
+  border: 1px solid #d9d2c5;
+  border-top: 3px solid #1a1a1a;
+  border-radius: 6px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-top-color 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.menu-card:hover {
+  border-top-color: #cc2222;
+}
+
+/* ===== DRIVE IN + SNAP/TRAVEL MAP エリア ===== */
+.menu-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: stretch;
+}
+
+/* DRIVE IN 画像スペース */
+.drive-in-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+}
+.drive-in-img {
+  width: 100%;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* 右側の縦2枚カード */
+.menu-side-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ===== SPACER ===== */
 .spacer {
   height: 24px;
+}
+
+/* ===== LATEST ORDER ===== */
+.latest-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.latest-list {
+  flex: 1;
+}
+.latest-item {
+  margin-bottom: 8px;
+}
+.latest-date {
+  font-size: 11px;
+  color: #cc2222;
+  font-family: 'Special Elite', serif;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.latest-item-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+  padding-left: 10px;
+}
+
+/* HOT & FRESH 画像スペース（装飾のみ） */
+.hot-fresh-img-wrap {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.hot-fresh-img {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .latest-main {
@@ -182,17 +277,14 @@ body {
   margin-bottom: 10px;
   transition: border-left-color 0.15s;
 }
-
 .latest-main:hover {
   border-left-color: #cc2222;
 }
-
 .mini-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-
 .latest-eyebrow {
   font-size: 10px;
   color: #cc2222;
@@ -201,14 +293,12 @@ body {
   margin-bottom: 6px;
   font-family: 'Special Elite', serif;
 }
-
 .latest-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 17px;
   color: #aaa;
   letter-spacing: 0.5px;
 }
-
 .mini-card {
   background: #fff;
   border: 1px solid #d9d2c5;
@@ -217,11 +307,9 @@ body {
   padding: 10px 12px;
   transition: border-left-color 0.15s;
 }
-
 .mini-card:hover {
   border-left-color: #cc2222;
 }
-
 .mini-label {
   font-size: 10px;
   color: #cc2222;
@@ -230,9 +318,29 @@ body {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-
 .mini-title {
   font-size: 12px;
   color: #aaa;
   font-family: 'Special Elite', serif;
+}
+
+/* ===== FOOTER DINER ===== */
+.footer-diner {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.diner-img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* チェッカー地面 */
+.footer-checker-wrap {
+  overflow: hidden;
+}
+.footer-checker {
+  display: grid;
+  width: 100%;
 }

@@ -12,7 +12,6 @@
 <body>
 
 <div class="outer">
-  <!-- ヘッダーチェッカー柄 -->
   <div class="checker" id="checker-top"></div>
 
   <div class="inner">
@@ -21,10 +20,7 @@
       <div class="hero-tag">WELCOME TO MY LIFE LOG</div>
       <div class="hero-top-row">
         <div class="hero-title">PORTFOLIO<br><span class="red">COZY DINER</span></div>
-        <!-- 将来ギミック用空ボタン。チェッカーの下から紐が生えるイメージで配置 -->
-        <button class="open-badge-btn" aria-label="OPEN 24 HOURS">
-          <img class="open-badge-img" src="images/open-badge.png" alt="OPEN 24 HOURS">
-        </button>
+        <img class="open-badge-img" src="images/open-badge.png" alt="OPEN 24 HOURS">
       </div>
       <div class="hero-bottom">
         <div class="hero-sub">勉強の記録や成果物、その他趣味のこと。気ままに更新中。</div>
@@ -36,7 +32,6 @@
     <div class="section-wrap">
       <div class="section-label">— MENU —</div>
 
-      <!-- ABOUT アコーディオン（横幅フル） -->
       <div class="accordion-card">
         <div class="accordion-header" onclick="toggleAccordion(this)">
           <div class="accordion-title-row">
@@ -46,12 +41,11 @@
           <div class="accordion-arrow"> <span class="arrow-icon">▼</span></div>
         </div>
         <div class="accordion-body">
-          <!-- ここにABOUTの内容を入れてね -->
+          <!-- ここにABOUTの内容を入れるよ -->
           自己紹介の内容がここに入ります。
         </div>
       </div>
 
-      <!-- WORKS / STUDY (2列) -->
       <div class="menu-grid-2">
         <div class="menu-card">
           <div class="menu-title">WORKS</div>
@@ -63,7 +57,6 @@
         </div>
       </div>
 
-      <!-- LIBRARY / TEA (2列) -->
       <div class="menu-grid-2">
         <div class="menu-card">
           <div class="menu-title">LIBRARY</div>
@@ -75,13 +68,10 @@
         </div>
       </div>
 
-      <!-- DRIVE IN gif ＋ SNAP / TRAVEL MAP -->
       <div class="menu-bottom-row">
-        <!-- drive-in.gif: GIFサイズに合わせてSNAP/TRAVEL MAPの高さも揃える -->
         <div class="drive-in-img-wrap">
           <img class="drive-in-img" src="images/drive-in.gif" alt="DRIVE IN">
         </div>
-        <!-- 右側：SNAP / TRAVEL MAP 縦2枚（GIFの高さに合わせて伸びる） -->
         <div class="menu-side-stack">
           <div class="menu-card">
             <div class="menu-title">SNAP</div>
@@ -99,7 +89,6 @@
       <!-- LATEST ORDER -->
       <div class="section-label">— LATEST ORDER —</div>
 
-      <!-- 記事リスト + HOT&FRESH画像（装飾のみ） -->
       <div class="latest-top-row">
         <div class="latest-list">
           <div class="latest-item">
@@ -111,7 +100,6 @@
             <div class="latest-item-title">記事を準備中…</div>
           </div>
         </div>
-        <!-- hot-fresh.png: 装飾のみ、クリック不可 -->
         <div class="hot-fresh-img-wrap">
           <img class="hot-fresh-img" src="images/hot-fresh.png" alt="HOT & FRESH">
         </div>
@@ -120,14 +108,12 @@
     </div>
   </div>
 
-  <!-- FOOTER DINER: diner.gif全体がGitHubリンクになる -->
   <div class="footer-diner">
     <a href="https://github.com/ha-mee2371/Portfolio" target="_blank" rel="noopener" class="diner-link">
       <img class="diner-img" src="images/diner.gif" alt="PORTFOLIO COZY DINER - WRITTEN BY ha-mee2371">
     </a>
   </div>
 
-  <!-- フッターチェッカー柄（地面） -->
   <div class="footer-checker-wrap">
     <div class="footer-checker checker" id="checker-bot"></div>
   </div>
@@ -136,7 +122,6 @@
 
 <script src="script.js"></script>
 <script>
-  // アコーディオン開閉
   function toggleAccordion(header) {
     const body = header.nextElementSibling;
     const arrow = header.querySelector('.accordion-arrow');

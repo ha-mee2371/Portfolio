@@ -21,9 +21,9 @@
       <div class="hero-tag">WELCOME TO MY LIFE LOG</div>
       <div class="hero-top-row">
         <div class="hero-title">PORTFOLIO<br><span class="red">COZY DINER</span></div>
-        <!-- 画像スペース：open-badge.png を差し替えてね / 将来ギミック用空ボタン -->
-        <button style="background:none;border:none;padding:0;cursor:pointer;" aria-label="OPEN 24 HOURS">
-          <img class="open-badge-img" src="open-badge.png" alt="OPEN 24 HOURS">
+        <!-- 将来ギミック用空ボタン。チェッカーの下から紐が生えるイメージで配置 -->
+        <button class="open-badge-btn" aria-label="OPEN 24 HOURS">
+          <img class="open-badge-img" src="images/open-badge.png" alt="OPEN 24 HOURS">
         </button>
       </div>
       <div class="hero-bottom">
@@ -43,7 +43,7 @@
             <div class="menu-title">ABOUT</div>
             <div class="menu-sub">自己紹介</div>
           </div>
-          <div class="accordion-arrow"><span class="arrow-icon">▼</span></div>
+          <div class="accordion-arrow"> <span class="arrow-icon">▼</span></div>
         </div>
         <div class="accordion-body">
           <!-- ここにABOUTの内容を入れてね -->
@@ -75,13 +75,13 @@
         </div>
       </div>
 
-      <!-- DRIVE IN画像 ＋ SNAP / TRAVEL MAP -->
+      <!-- DRIVE IN gif ＋ SNAP / TRAVEL MAP -->
       <div class="menu-bottom-row">
-        <!-- 画像スペース：drive-in.png を差し替えてね -->
+        <!-- drive-in.gif: GIFサイズに合わせてSNAP/TRAVEL MAPの高さも揃える -->
         <div class="drive-in-img-wrap">
-          <img class="drive-in-img" src="drive-in.png" alt="DRIVE IN">
+          <img class="drive-in-img" src="images/drive-in.gif" alt="DRIVE IN">
         </div>
-        <!-- 右側：SNAP / TRAVEL MAP 縦2枚 -->
+        <!-- 右側：SNAP / TRAVEL MAP 縦2枚（GIFの高さに合わせて伸びる） -->
         <div class="menu-side-stack">
           <div class="menu-card">
             <div class="menu-title">SNAP</div>
@@ -99,7 +99,7 @@
       <!-- LATEST ORDER -->
       <div class="section-label">— LATEST ORDER —</div>
 
-      <!-- 記事リスト + HOT&FRESH画像 -->
+      <!-- 記事リスト + HOT&FRESH画像（装飾のみ） -->
       <div class="latest-top-row">
         <div class="latest-list">
           <div class="latest-item">
@@ -111,42 +111,20 @@
             <div class="latest-item-title">記事を準備中…</div>
           </div>
         </div>
-        <!-- 画像スペース：hot-fresh.png を差し替えてね（装飾のみ） -->
+        <!-- hot-fresh.png: 装飾のみ、クリック不可 -->
         <div class="hot-fresh-img-wrap">
-          <img class="hot-fresh-img" src="hot-fresh.png" alt="HOT & FRESH">
+          <img class="hot-fresh-img" src="images/hot-fresh.png" alt="HOT & FRESH">
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- FOOTER DINER -->
-  <!-- 画像スペース：diner.png を差し替えてね -->
+  <!-- FOOTER DINER: diner.gif全体がGitHubリンクになる -->
   <div class="footer-diner">
-    <div style="position:relative;">
-      <img class="diner-img" src="diner.png" alt="PORTFOLIO COZY DINER">
-      <!-- diner.png の「WRITTEN BY」文字の位置に合わせて top の値を調整してね -->
-      <a
-        href="https://github.com/ha-mee2371/Portfolio"
-        target="_blank"
-        rel="noopener"
-        style="
-          position: absolute;
-          top: 45%;
-          left: 50%;
-          transform: translateX(-50%);
-          font-family: 'Special Elite', serif;
-          font-size: 11px;
-          color: #fff;
-          background: #2563eb;
-          text-decoration: underline;
-          padding: 3px 10px;
-          border-radius: 3px;
-          white-space: nowrap;
-          letter-spacing: 1px;
-        "
-      >WRITTEN BY ha-mee2371</a>
-    </div>
+    <a href="https://github.com/ha-mee2371/Portfolio" target="_blank" rel="noopener" class="diner-link">
+      <img class="diner-img" src="images/diner.gif" alt="PORTFOLIO COZY DINER - WRITTEN BY ha-mee2371">
+    </a>
   </div>
 
   <!-- フッターチェッカー柄（地面） -->

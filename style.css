@@ -32,7 +32,7 @@ body {
 
 /* ===== HERO ===== */
 .hero {
-  padding: 24px 20px 16px;
+  padding: 16px 20px 16px;
   background: #faf6ee;
 }
 .hero-tag {
@@ -60,14 +60,21 @@ body {
   color: #cc2222;
 }
 
-/* OPEN 24 HOURS 画像スペース */
-.open-badge-img {
-  flex-shrink: 0;
-  width: 90px;
-  height: 60px;
-  object-fit: contain;
+/* OPEN 24 HOURS ボタン（将来のギミック用） */
+.open-badge-btn {
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  /* 将来のギミック用に空ボタンとして配置 */
+  flex-shrink: 0;
+  /* チェッカーの下から紐が生えているように上に少し引き上げ */
+  margin-top: -20px;
+}
+.open-badge-img {
+  width: 100px;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .hero-bottom {
@@ -193,33 +200,36 @@ body {
   border-top-color: #cc2222;
 }
 
-/* ===== DRIVE IN + SNAP/TRAVEL MAP エリア ===== */
+/* ===== DRIVE IN gif + SNAP/TRAVEL MAP ===== */
 .menu-bottom-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   margin-bottom: 8px;
+  /* GIF側の高さに右カラムも引き伸ばす */
   align-items: stretch;
 }
 
-/* DRIVE IN 画像スペース */
+/* DRIVE IN gif: 横幅いっぱい、縦横比そのまま */
 .drive-in-img-wrap {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 110px;
+  align-items: stretch;
 }
 .drive-in-img {
   width: 100%;
-  height: 110px;
+  height: 100%;
   object-fit: contain;
+  display: block;
 }
 
-/* 右側の縦2枚カード */
+/* SNAP / TRAVEL MAP: GIFの高さに合わせて均等に伸びる */
 .menu-side-stack {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+.menu-side-stack .menu-card {
+  flex: 1; /* 2枚で均等に高さを分割 */
 }
 
 /* ===== SPACER ===== */
@@ -256,79 +266,28 @@ body {
   padding-left: 10px;
 }
 
-/* HOT & FRESH 画像スペース（装飾のみ） */
+/* HOT & FRESH 画像（装飾のみ、クリック不可） */
 .hot-fresh-img-wrap {
   flex-shrink: 0;
   pointer-events: none;
 }
 .hot-fresh-img {
-  width: 90px;
+  width: 110px;
   height: auto;
-  object-fit: contain;
   display: block;
-}
-
-.latest-main {
-  background: #fff;
-  border: 1px solid #d9d2c5;
-  border-left: 3px solid #1a1a1a;
-  border-radius: 6px;
-  padding: 16px;
-  margin-bottom: 10px;
-  transition: border-left-color 0.15s;
-}
-.latest-main:hover {
-  border-left-color: #cc2222;
-}
-.mini-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.latest-eyebrow {
-  font-size: 10px;
-  color: #cc2222;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-  font-family: 'Special Elite', serif;
-}
-.latest-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 17px;
-  color: #aaa;
-  letter-spacing: 0.5px;
-}
-.mini-card {
-  background: #fff;
-  border: 1px solid #d9d2c5;
-  border-left: 3px solid #1a1a1a;
-  border-radius: 6px;
-  padding: 10px 12px;
-  transition: border-left-color 0.15s;
-}
-.mini-card:hover {
-  border-left-color: #cc2222;
-}
-.mini-label {
-  font-size: 10px;
-  color: #cc2222;
-  margin-bottom: 4px;
-  font-family: 'Special Elite', serif;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-.mini-title {
-  font-size: 12px;
-  color: #aaa;
-  font-family: 'Special Elite', serif;
+  object-fit: contain;
 }
 
 /* ===== FOOTER DINER ===== */
+/* diner.gif 全体がGitHubリンクになる */
 .footer-diner {
   max-width: 430px;
   margin: 0 auto;
   padding: 0 20px;
+}
+.diner-link {
+  display: block;
+  cursor: pointer;
 }
 .diner-img {
   width: 100%;

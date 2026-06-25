@@ -68,18 +68,16 @@ body {
   cursor: pointer;
   flex-shrink: 0;
   /* チェッカーの下から紐が生えているように上に少し引き上げ */
-  margin-top: -20px;
+  margin-top: -30px;
 }
 
 .open-badge-img {
-  position: absolute;
-  top: 30px;
-  right: 20px;
   width: 100px;
   height: auto;
   display: block;
   object-fit: contain;
-  z-index: 10;
+  flex-shrink: 0;
+  margin-top: -30px;
 }
 
 .hero-bottom {
@@ -300,10 +298,6 @@ body {
   object-fit: contain;
 }
 
-/* チェッカー地面 */
-.footer-checker-wrap {
-  overflow: hidden;
-}
 .footer-checker {
   display: grid;
   width: 100%;

@@ -70,11 +70,16 @@ body {
   /* チェッカーの下から紐が生えているように上に少し引き上げ */
   margin-top: -20px;
 }
+
 .open-badge-img {
+  position: absolute;
+  top: 0px;
+  right: 20px;
   width: 100px;
   height: auto;
   display: block;
   object-fit: contain;
+  z-index: 10;
 }
 
 .hero-bottom {
@@ -187,17 +192,17 @@ body {
 .menu-card {
   background: #fff;
   border: 1px solid #d9d2c5;
-  border-top: 3px solid #1a1a1a;
+  border-left: 4px solid #1a1a1a;
   border-radius: 6px;
   padding: 12px 14px;
   cursor: pointer;
-  transition: border-top-color 0.15s;
+  transition: border-left-color 0.15s;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 .menu-card:hover {
-  border-top-color: #cc2222;
+  border-left-color: #cc2222;
 }
 
 /* ===== DRIVE IN gif + SNAP/TRAVEL MAP ===== */
@@ -302,4 +307,8 @@ body {
 .footer-checker {
   display: grid;
   width: 100%;
+}
+
+.checker-wrap {
+  position: relative;
 }

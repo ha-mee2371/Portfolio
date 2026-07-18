@@ -9,7 +9,7 @@ body {
 }
 .outer {
   background: #faf6ee;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 /* ===== CHECKER ===== */
@@ -73,19 +73,35 @@ body {
   margin-bottom: 6px;
   font-family: 'Special Elite', serif;
 }
+.hero-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
 .hero-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 44px;
   color: #1a1a1a;
   line-height: 1;
-  margin: 0 0 8px 0;
+  margin: 0;
 }
 .hero-title .red {
   color: #cc2222;
 }
+.open-badge-img {
+  width: 100px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: -30px;
+}
 .hero-sub {
   font-size: 11px;
   color: #777;
+  margin-top: 4px;
 }
 
 /* ===== SECTION WRAP ===== */
@@ -187,11 +203,6 @@ body {
 }
 .order-btn:hover {
   background: #cc2222;
-}
-.order-btn.disabled {
-  background: #d9d2c5;
-  color: #999;
-  cursor: not-allowed;
 }
 
 .spacer {

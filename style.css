@@ -5,6 +5,8 @@
 body {
   margin: 0;
   background: #faf6ee;
+  /* ↓ サイト全体の基本フォントを、ABOUTと同じ癖のない綺麗なゴシック体に統一したdeath！ */
+  font-family: sans-serif; 
 }
 .outer {
   background: #faf6ee;
@@ -67,7 +69,6 @@ body {
   padding: 0;
   cursor: pointer;
   flex-shrink: 0;
-  /* チェッカーの下から紐が生えているように上に少し引き上げ */
   margin-top: -30px;
 }
 
@@ -86,7 +87,8 @@ body {
 .hero-sub {
   font-size: 11px;
   color: #777;
-  font-family: 'Special Elite', serif;
+  /* ↓ 読みやすいゴシック体に変更したdeath */
+  font-family: sans-serif; 
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -95,7 +97,8 @@ body {
   font-size: 9px;
   color: #a0a0a0;
   margin-top: 5px;
-  font-family: 'Special Elite', serif;
+  /* ↓ 読みやすいゴシック体に変更したdeath */
+  font-family: sans-serif; 
 }
 
 /* ===== SECTION WRAP ===== */
@@ -148,12 +151,14 @@ body {
 .menu-sub {
   font-size: 11px;
   color: #999;
-  font-family: 'Special Elite', serif;
+  /* ↓ 読みやすいゴシック体に変更したdeath */
+  font-family: sans-serif; 
 }
 .accordion-arrow {
   font-size: 11px;
   color: #1a1a1a;
-  font-family: 'Special Elite', serif;
+  /* ↓ 読みやすいゴシック体に変更したdeath */
+  font-family: sans-serif; 
   letter-spacing: 1px;
   display: flex;
   align-items: center;
@@ -172,7 +177,8 @@ body {
   padding: 12px 16px 14px;
   font-size: 12px;
   color: #555;
-  font-family: 'Special Elite', serif;
+  /* ↓ 読みやすいゴシック体に変更したdeath */
+  font-family: sans-serif; 
   line-height: 1.7;
   border-top: 1px dashed #d9d2c5;
 }
@@ -209,11 +215,10 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   margin-bottom: 8px;
-  /* GIF側の高さに右カラムも引き伸ばす */
   align-items: stretch;
 }
 
-/* DRIVE IN gif: 横幅いっぱい、縦横比そのまま */
+/* DRIVE IN gif */
 .drive-in-img-wrap {
   display: flex;
   align-items: stretch;
@@ -225,14 +230,14 @@ body {
   display: block;
 }
 
-/* SNAP / TRAVEL MAP: GIFの高さに合わせて均等に伸びる */
+/* SNAP / TRAVEL MAP */
 .menu-side-stack {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 .menu-side-stack .menu-card {
-  flex: 1; /* 2枚で均等に高さを分割 */
+  flex: 1; 
 }
 
 /* ===== SPACER ===== */
@@ -257,7 +262,8 @@ body {
 .latest-date {
   font-size: 11px;
   color: #cc2222;
-  font-family: 'Special Elite', serif;
+  /* ↓ 読みやすいゴシック体に変更したdeath */
+  font-family: sans-serif; 
   letter-spacing: 1px;
   margin-bottom: 2px;
 }
@@ -269,7 +275,7 @@ body {
   padding-left: 10px;
 }
 
-/* HOT & FRESH 画像（装飾のみ、クリック不可） */
+/* HOT & FRESH 画像 */
 .hot-fresh-img-wrap {
   flex-shrink: 0;
   pointer-events: none;
@@ -282,7 +288,6 @@ body {
 }
 
 /* ===== FOOTER DINER ===== */
-/* diner.gif 全体がGitHubリンクになる */
 .footer-diner {
   max-width: 430px;
   margin: 0 auto;

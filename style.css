@@ -180,7 +180,7 @@ body {
   /* ↓ 読みやすいゴシック体に変更したdeath */
   font-family: sans-serif; 
   line-height: 1.7;
-  border-top: 1px dashed #d9d2c5;
+  border-top: none;
 }
 .accordion-body.open {
   display: block;

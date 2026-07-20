@@ -96,7 +96,7 @@ body {
   display: block;
   object-fit: contain;
   flex-shrink: 0;
-  margin-top: -70px;
+  margin-top: -75px;
 }
 .hero-sub {
   font-size: 11px;

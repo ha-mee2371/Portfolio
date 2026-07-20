@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STUDY - COZY DINER🥤🍔</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="study_style.css">
+</head>
+<body>
+
+<div class="outer">
+  <!-- トップのチェッカー -->
+  <div class="checker-wrap">
+    <div class="checker" id="checker-top"></div>
+  </div>
+
+  <div class="inner">
+    <!-- ヘッダー・戻るリンク -->
+    <div class="header-nav">
+      <a href="index.html" class="back-btn">← BACK TO MENU</a>
+    </div>
+
+    <div class="hero">
+      <div class="hero-tag">WELCOME TO MY LIFE LOG</div>
+      <div class="hero-top-row">
+        <div class="hero-title">MY <span class="red">STUDY NOTES</span></div>
+        <img class="open-badge-img" src="images/open-badge.png" alt="OPEN 24 HOURS">
+      </div>
+      <div class="hero-sub">学習した内容、気付き、そして今後の改善点を記録しておく倉庫です。紙のノートにまとめるのが優先なので、こちらは記載量が少ないかもしれないです。</div>
+    </div>
+
+    <div class="section-wrap">
+      
+      <div class="section-label">— CATEGORY SELECT —</div>
+      <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterCategory('ALL')">ALL</button>
+        <button class="filter-btn" onclick="filterCategory('C#')">C#</button>
+        <button class="filter-btn" onclick="filterCategory('FE')">FE</button>
+        <button class="filter-btn" onclick="filterCategory('IP')">IP</button>
+      </div>
+
+      <div class="section-label">— NOTES LIST —</div>
+
+      <div id="notes-container" class="works-grid"></div>
+
+      <div class="spacer"></div>
+    </div>
+
+  </div>
+
+  <!-- フッターのチェッカーフラッグ -->
+  <div class="footer-checker-wrap">
+    <div class="footer-checker checker" id="checker-bot"></div>
+  </div>
+</div>
+
+<script src="study_script.js"></script>
+</body>
+</html>

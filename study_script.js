@@ -54,7 +54,7 @@ function displayArticles(categoryFilter) {
           <div class="tech-stack">
             ${tagsHtml}
           </div>
-          <a href="${article.url}" target="_blank" rel="noopener" class="order-btn">READ NOTE →</a>
+          <a href="${article.url}" class="order-btn">READ NOTE →</a>
         </div>
       `;
 

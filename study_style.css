@@ -96,15 +96,7 @@ body {
   display: block;
   object-fit: contain;
   flex-shrink: 0;
-  margin-top: -80px;
-}
-.open-badge-img {
-  width: 100px;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  flex-shrink: 0;
-  margin-top: -30px;
+  margin-top: -60px;
 }
 .hero-sub {
   font-size: 11px;

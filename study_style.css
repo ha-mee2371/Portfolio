@@ -96,7 +96,7 @@ body {
   display: block;
   object-fit: contain;
   flex-shrink: 0;
-  margin-top: -55px; /* ← -30px から -55px（または -50px）に変更！ */
+  margin-top: -60px;
 }
 .open-badge-img {
   width: 100px;

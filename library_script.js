@@ -17,10 +17,7 @@ function buildChecker(id) {
   }
 }
 
-// APIへの連続アクセスを和らげるためのウェイト関数
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-// ===== OPENBD & GOOGLE BOOKS FETCH PROCESS =====
+// ===== BOOKSHELF FETCH PROCESS =====
 async function loadLibraryBooks() {
   const container = document.getElementById('bookshelf');
   if (!container) return;
@@ -37,7 +34,6 @@ async function loadLibraryBooks() {
       return;
     }
 
-    // 1. OpenBD で一括検索
     const isbnList = booksData.map(b => String(b.isbn).replace(/-/g, '')).filter(Boolean).join(',');
     const openBdUrl = `https://api.openbd.jp/v1/get?isbn=${isbnList}`;
 
@@ -46,35 +42,11 @@ async function loadLibraryBooks() {
 
     container.innerHTML = ''; 
 
-    // 2. 1冊ずつカードを生成
-    for (let index = 0; index < booksData.length; index++) {
-      const item = booksData[index];
-      const cleanIsbn = String(item.isbn).replace(/-/g, '');
+    booksData.forEach((item, index) => {
       const bdInfo = bdData ? bdData[index] : null;
       
-      let coverUrl = item.coverUrl || bdInfo?.summary?.cover || '';
-      let title = bdInfo?.summary?.title || item.title || 'UNTITLED';
-
-      // 3. OpenBD に画像がない場合のみ Google Books を検索
-      if (!coverUrl) {
-        try {
-          await sleep(200);
-
-          const googleRes = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${cleanIsbn}`);
-          if (googleRes.ok) {
-            const googleData = await googleRes.json();
-            if (googleData.items && googleData.items.length > 0) {
-              const volumeInfo = googleData.items[0].volumeInfo;
-              coverUrl = volumeInfo.imageLinks?.thumbnail?.replace('http://', 'https://') || '';
-              if (title === 'UNTITLED') {
-                title = volumeInfo.title || 'UNTITLED';
-              }
-            }
-          }
-        } catch (e) {
-          console.warn(`Google Books fetch failed for ISBN: ${cleanIsbn}`, e);
-        }
-      }
+      const coverUrl = item.coverUrl || bdInfo?.summary?.cover || '';
+      const title = bdInfo?.summary?.title || item.title || 'UNTITLED';
 
       const card = document.createElement('a');
       card.className = 'book-card';
@@ -93,7 +65,7 @@ async function loadLibraryBooks() {
       `;
 
       container.appendChild(card);
-    }
+    });
 
   } catch (error) {
     console.error('Library loading error:', error);

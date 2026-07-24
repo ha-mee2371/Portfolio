@@ -75,8 +75,8 @@ function displayTeas(categoryFilter) {
         rankClass = 'rank-3';
       }
 
-      const imageHtml = tea.coverUrl 
-        ? `<img src="${tea.coverUrl}" alt="${tea.title}" class="tea-img">` 
+      const imageHtml = (tea.coverUrl && tea.coverUrl.trim() !== '') 
+        ? `<img src="${tea.coverUrl}" alt="${tea.title}" class="tea-img" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\\'no-image-box\\'><span class=\\'icon\\'>☕</span><span class=\\'text\\'>NO IMAGE</span></div>';">` 
         : `<div class="no-image-box">
              <span class="icon">☕</span>
              <span class="text">NO IMAGE</span>

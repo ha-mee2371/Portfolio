@@ -22,7 +22,16 @@ buildChecker('checker-bot');
 
 let snapPhotos = [];
 
-// ===== FETCH SNAP DATA =====
+const BASE_IMAGE_URL = 'https://raw.githubusercontent.com/ha-mee2371/Portfolio_SNAP/main/';
+
+function getFullImageUrl(url) {
+  if (!url || url.trim() === '') return '';
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url;
+  }
+  return BASE_IMAGE_URL + url.replace(/^\//, '');
+}
+
 async function loadSnapData() {
   const DATA_URL = 'https://raw.githubusercontent.com/ha-mee2371/Portfolio_SNAP/refs/heads/main/snap.json';
 
@@ -51,8 +60,10 @@ function displaySnaps() {
     card.className = 'snap-card';
     card.onclick = () => openModal(index);
 
-    const imageHtml = (photo.imageUrl && photo.imageUrl.trim() !== '')
-      ? `<img src="${photo.imageUrl}" alt="SNAP PHOTO" class="snap-img" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\\'no-image-box\\'><span class=\\'icon\\'>📷</span><span class=\\'text\\'>NO IMAGE</span></div>';">`
+    const fullUrl = getFullImageUrl(photo.imageUrl);
+
+    const imageHtml = fullUrl
+      ? `<img src="${fullUrl}" alt="SNAP PHOTO" class="snap-img" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\\'no-image-box\\'><span class=\\'icon\\'>📷</span><span class=\\'text\\'>NO IMAGE</span></div>';">`
       : `<div class="no-image-box">
            <span class="icon">📷</span>
            <span class="text">NO IMAGE</span>
@@ -71,7 +82,7 @@ function openModal(index) {
   const modalImg = document.getElementById('modal-img');
   const modalComment = document.getElementById('modal-comment');
 
-  modalImg.src = photo.imageUrl || '';
+  modalImg.src = getFullImageUrl(photo.imageUrl);
   modalComment.textContent = photo.comment || '';
 
   modal.classList.add('open');

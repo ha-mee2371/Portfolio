@@ -40,10 +40,20 @@ async function loadLibraryBooks() {
     const bdResponse = await fetch(openBdUrl);
     const bdData = await bdResponse.json();
 
+    const bdMap = {};
+    if (Array.isArray(bdData)) {
+      bdData.forEach(item => {
+        if (item && item.summary && item.summary.isbn) {
+          bdMap[item.summary.isbn] = item;
+        }
+      });
+    }
+
     container.innerHTML = ''; 
 
-    booksData.forEach((item, index) => {
-      const bdInfo = bdData ? bdData[index] : null;
+    booksData.forEach((item) => {
+      const cleanIsbn = String(item.isbn).replace(/-/g, '');
+      const bdInfo = bdMap[cleanIsbn];
       
       const coverUrl = item.coverUrl || bdInfo?.summary?.cover || '';
       const title = bdInfo?.summary?.title || item.title || 'UNTITLED';

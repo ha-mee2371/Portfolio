@@ -24,7 +24,7 @@ let teaArticles = [];
 let currentCategory = 'ALL';
 
 async function loadTeaData() {
-  const DATA_URL = 'https://raw.githubusercontent.com/ha-mee2371/Portfolio_Tea/refs/heads/main/tea.json';
+  const DATA_URL = 'https://raw.githubusercontent.com/ha-mee2371/Portfolio_TEA/refs/heads/main/tea.json';
 
   try {
     const response = await fetch(DATA_URL);

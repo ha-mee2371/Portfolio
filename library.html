@@ -3,58 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LIBRARY - portfolio-cozy-diner🥤🍔</title>
+  <title>LIBRARY - COZY DINER🥤🍔</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Elite&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="library.css">
+  <link rel="stylesheet" href="library_style.css">
 </head>
 <body>
 
-<div class="checker-wrap">
-  <div class="checker" id="checker-top"></div>
-</div>
+<div class="outer">
+  <!-- トップのチェッカー -->
+  <div class="checker-wrap">
+    <div class="checker" id="checker-top"></div>
+  </div>
 
   <div class="inner">
-    <!-- HERO / HEADER -->
-    <div class="hero">
-      <div class="hero-tag"><a href="index.html" class="back-link">← BACK TO DINER</a></div>
-      <div class="hero-top-row">
-        <div class="hero-title">MY<span class="red">LIBRARY</span></div>
-        <img class="open-badge-img" src="images/open-badge.png" alt="OPEN 24 HOURS">
-      </div>
-      <div class="hero-bottom">
-        <div class="hero-sub">読了本のうち、お気に入りの本を載せていきます。リンクはAmazonへ飛びます。</div>
-      </div>
+    <!-- ヘッダー・戻るリンク -->
+    <div class="header-nav">
+      <a href="index.html" class="back-btn">← BACK TO MENU</a>
     </div>
 
-    <!-- MAIN BOOKSHELF SECTION -->
-    <div class="section-wrap">
-      <div class="section-label">— BOOKS —</div>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-tag">WELCOME TO MY LIFE LOG</div>
+      <div class="hero-top-row">
+        <div class="hero-title">MY <span class="red">LIBRARY</span></div>
+        <img class="open-badge-img" src="images/open-badge.png" alt="OPEN 24 HOURS">
+      </div>
+      <div class="hero-sub">読了本のうち、お気に入りの本を載せていきます。リンクはAmazonへ飛びます。</div>
+    </div>
 
+    <!-- SECTION WRAP -->
+    <div class="section-wrap">
+      <div class="section-label">— READ BOOKS —</div>
+
+      <!-- 本棚グリッド表示領域 -->
       <div id="bookshelf" class="bookshelf-grid">
         <div class="loading-state">LOADING SHELF...</div>
       </div>
+
+      <div class="spacer"></div>
     </div>
+
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer-diner">
-    <a href="https://github.com/ha-mee2371/Portfolio" target="_blank" rel="noopener" class="diner-link">
-      <img class="diner-img" src="images/diner.gif" alt="PORTFOLIO COZY DINER - WRITTEN BY ha-mee2371">
-    </a>
-  </div>
-
-  div class="footer-checker-wrap">
+  <!-- フッターのチェッカーフラッグ -->
+  <div class="footer-checker-wrap">
     <div class="footer-checker checker" id="checker-bot"></div>
   </div>
+</div>
 
 <script src="script.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    loadLibraryBooks();
-  });
-</script>
+<script src="library_script.js"></script>
 </body>
 </html>

@@ -1,15 +1,126 @@
-/* 戻るリンクのスタイル */
-.back-link {
-  color: #1a1a1a;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.15s;
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
 }
-.back-link:hover {
-  color: #cc2222;
+body {
+  margin: 0;
+  background: #faf6ee;
+  font-family: sans-serif; 
+}
+.outer {
+  background: #faf6ee;
+  overflow: hidden;
 }
 
-/* 本棚グリッド構造（2列配置） */
+/* ===== CHECKER ===== */
+.checker {
+  display: grid;
+  width: 100%;
+  overflow: hidden;
+}
+.checker-cell.b {
+  background: #1a1a1a;
+}
+.checker-cell.w {
+  background: #faf6ee;
+}
+.checker-wrap {
+  position: relative;
+}
+.footer-checker {
+  display: grid;
+  width: 100%;
+}
+
+/* ===== INNER ===== */
+.inner {
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+/* ===== HEADER NAV ===== */
+.header-nav {
+  padding: 16px 20px 0;
+}
+.back-btn {
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border: 1px solid #1a1a1a;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #fff;
+  transition: all 0.2s;
+}
+.back-btn:hover {
+  background: #1a1a1a;
+  color: #faf6ee;
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: 16px 20px 8px;
+  background: #faf6ee;
+}
+.hero-tag {
+  font-size: 11px;
+  color: #1a1a1a;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Special Elite', serif;
+}
+.hero-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  color: #1a1a1a;
+  line-height: 1;
+  margin: 0;
+}
+.hero-title .red {
+  color: #cc2222;
+}
+.open-badge-img {
+  width: 100px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: -75px;
+}
+.hero-sub {
+  font-size: 11px;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* ===== SECTION WRAP ===== */
+.section-wrap {
+  padding: 8px 20px 24px;
+  background: #faf6ee;
+}
+.section-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: #1a1a1a;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid #1a1a1a;
+  padding-bottom: 6px;
+  margin-top: 16px;
+}
+
+/* ===== BOOKSHELF GRID & CARDS ===== */
 .bookshelf-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -17,7 +128,6 @@
   margin-top: 12px;
 }
 
-/* 本のカード枠（COZY DINERのカード風デザイン） */
 .book-card {
   background: #fff;
   border: 1px solid #1a1a1a;
@@ -40,7 +150,6 @@
   border-bottom-color: #cc2222;
 }
 
-/* 書影（表紙画像）スタイル */
 .book-cover-wrap {
   width: 100%;
   aspect-ratio: 1 / 1.4;
@@ -59,7 +168,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* 表紙画像が存在しない場合の代替表示 */
 .book-no-cover {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 14px;
@@ -68,7 +176,6 @@
   padding: 8px;
 }
 
-/* ホバー時に表示されるタイトルラベル */
 .book-title-tag {
   margin-top: 8px;
   font-size: 10px;
@@ -82,7 +189,6 @@
   overflow: hidden;
 }
 
-/* ローディング表示 */
 .loading-state, .error-state {
   grid-column: 1 / -1;
   text-align: center;
@@ -91,4 +197,8 @@
   font-size: 18px;
   color: #777;
   letter-spacing: 1px;
+}
+
+.spacer {
+  height: 20px;
 }

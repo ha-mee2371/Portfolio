@@ -1,3 +1,4 @@
+// チェッカーフラッグ描画
 function buildChecker(id) {
   const el = document.getElementById(id);
   if (!el) return; 
@@ -55,23 +56,36 @@ function renderSpots() {
   listContainer.innerHTML = '';
 
   travelSpots.forEach((spot, index) => {
-    const coords = spot.coords.split(',').map(num => parseFloat(num.trim()));
+    let coords = null;
+
+    if (spot.coords && spot.coords.includes(',')) {
+      const parts = spot.coords.split(',').map(num => parseFloat(num.trim()));
+      if (!isNaN(parts[0]) && !isNaN(parts[1])) {
+        coords = parts;
+      }
+    }
     
-    const marker = L.marker(coords).addTo(map);
-    marker.on('click', () => openModal(index));
-    markers.push(marker);
+    if (coords) {
+      const marker = L.marker(coords).addTo(map);
+      marker.on('click', () => openModal(index));
+      markers.push(marker);
+    }
 
     const card = document.createElement('div');
     card.className = 'spot-card';
     card.onclick = () => {
-      map.flyTo(coords, 14, { duration: 1 });
-      setTimeout(() => openModal(index), 800);
+      if (coords) {
+        map.flyTo(coords, 14, { duration: 1 });
+        setTimeout(() => openModal(index), 800);
+      } else {
+        openModal(index);
+      }
     };
     
     card.innerHTML = `
       <div class="spot-icon">📍</div>
       <div class="spot-info">
-        <div class="spot-title">${spot.title}</div>
+        <div class="spot-title">${spot.title || 'Untitled'}</div>
         <div class="spot-desc">${spot.comment || 'コメント無し'}</div>
       </div>
     `;

@@ -21,7 +21,7 @@ async function loadLibraryBooks() {
   const container = document.getElementById('bookshelf');
   if (!container) return;
 
-  const DATA_URL = 'https://raw.githubusercontent.com/ha-mee2371/Portfolio_Books/main/books.json';
+  const DATA_URL = 'https://raw.githubusercontent.com/ha-mee2371/Portfolio_Books/refs/heads/main/books.json';
 
   try {
     // 1. データリポジトリから JSON を取得

@@ -1,0 +1,212 @@
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #faf6ee;
+  font-family: sans-serif; 
+}
+.outer {
+  background: #faf6ee;
+  overflow: hidden;
+}
+
+/* ===== CHECKER ===== */
+.checker {
+  display: grid;
+  width: 100%;
+  overflow: hidden;
+}
+.checker-cell.b { background: #1a1a1a; }
+.checker-cell.w { background: #faf6ee; }
+.checker-wrap, .footer-checker { position: relative; width: 100%; }
+
+/* ===== INNER ===== */
+.inner {
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+/* ===== HEADER NAV & HERO ===== */
+.header-nav { padding: 16px 20px 0; }
+.back-btn {
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border: 1px solid #1a1a1a;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #fff;
+  transition: all 0.2s;
+}
+.back-btn:hover { background: #1a1a1a; color: #faf6ee; }
+
+.hero { padding: 16px 20px 8px; background: #faf6ee; }
+.hero-tag {
+  font-size: 11px;
+  color: #1a1a1a;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Special Elite', serif;
+}
+.hero-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  color: #1a1a1a;
+  line-height: 1;
+  margin: 0;
+}
+.hero-title .red { color: #cc2222; }
+.open-badge-img {
+  width: 100px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: -75px;
+}
+.hero-sub { font-size: 11px; color: #777; margin-top: 4px; }
+
+/* ===== SECTION WRAP ===== */
+.section-wrap { padding: 8px 20px 24px; background: #faf6ee; }
+.section-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: #1a1a1a;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid #1a1a1a;
+  padding-bottom: 6px;
+  margin-top: 16px;
+}
+
+/* ===== FILTER BUTTONS ===== */
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  background-color: #fff;
+  color: #1a1a1a;
+  border: 1px solid #d9d2c5;
+  border-left: 4px solid #1a1a1a;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.filter-btn:hover, .filter-btn.active {
+  background-color: #1a1a1a;
+  color: #fff;
+  border-left-color: #cc2222;
+}
+
+.tea-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* ===== TEA CARD ===== */
+.tea-card {
+  background: #fff;
+  border: 1px solid #d9d2c5;
+  border-radius: 6px;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.tea-card:hover {
+  transform: translateY(-2px);
+  border-color: #1a1a1a;
+}
+
+.rank-badge {
+  position: absolute;
+  top: -8px;
+  right: -4px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  padding: 2px 8px;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+.rank-1 { background: #cc2222; } /* 1位: もう一回買う！ */
+.rank-2 { background: #e67e22; } /* 2位: うまあ */
+.rank-3 { background: #7f8c8d; } /* 3位: 苦手 */
+
+.tea-image-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  background: #f4efe6;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e8e2d5;
+}
+.tea-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.no-image-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #a09888;
+  font-family: 'Bebas Neue', sans-serif;
+  text-align: center;
+}
+.no-image-box .icon { font-size: 28px; line-height: 1; }
+.no-image-box .text { font-size: 11px; letter-spacing: 1px; margin-top: 4px; }
+
+.tea-brand {
+  font-family: 'Special Elite', serif;
+  font-size: 10px;
+  color: #888;
+  text-transform: uppercase;
+}
+.tea-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  color: #1a1a1a;
+  line-height: 1.2;
+  margin: 2px 0 4px;
+}
+.tea-comment {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.3;
+  margin-top: auto; /* 下揃え */
+}
+
+.spacer { height: 20px; }

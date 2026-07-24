@@ -17,6 +17,9 @@ function buildChecker(id) {
   }
 }
 
+// APIへの連続アクセスを和らげるためのウェイト関数
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 // ===== OPENBD & GOOGLE BOOKS FETCH PROCESS =====
 async function loadLibraryBooks() {
   const container = document.getElementById('bookshelf');
@@ -25,7 +28,6 @@ async function loadLibraryBooks() {
   const DATA_URL = 'https://raw.githubusercontent.com/ha-mee2371/Portfolio_Books/refs/heads/main/books.json';
 
   try {
-    // 1. データリポジトリから JSON を取得
     const response = await fetch(DATA_URL);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     const booksData = await response.json();
@@ -35,35 +37,38 @@ async function loadLibraryBooks() {
       return;
     }
 
-    // 2. OpenBD API 用に ISBN（ハイフン除去）を準備
+    // 1. OpenBD で一括検索
     const isbnList = booksData.map(b => String(b.isbn).replace(/-/g, '')).filter(Boolean).join(',');
     const openBdUrl = `https://api.openbd.jp/v1/get?isbn=${isbnList}`;
 
-    // 3. OpenBD API から一括取得
     const bdResponse = await fetch(openBdUrl);
     const bdData = await bdResponse.json();
 
     container.innerHTML = ''; 
 
-    // 4. 各本をループ処理（OpenBDで画像が取れなければ Google Books API で補完）
+    // 2. 1冊ずつカードを生成
     for (let index = 0; index < booksData.length; index++) {
       const item = booksData[index];
       const cleanIsbn = String(item.isbn).replace(/-/g, '');
       const bdInfo = bdData ? bdData[index] : null;
       
-      let coverUrl = bdInfo?.summary?.cover || '';
-      let title = bdInfo?.summary?.title || 'UNTITLED';
+      let coverUrl = item.coverUrl || bdInfo?.summary?.cover || '';
+      let title = bdInfo?.summary?.title || item.title || 'UNTITLED';
 
-      // OpenBDで表紙画像がない場合、Google Books APIを自動検索
+      // 3. OpenBD に画像がない場合のみ Google Books を検索
       if (!coverUrl) {
         try {
+          await sleep(200);
+
           const googleRes = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${cleanIsbn}`);
-          const googleData = await googleRes.json();
-          if (googleData.items && googleData.items.length > 0) {
-            const volumeInfo = googleData.items[0].volumeInfo;
-            coverUrl = volumeInfo.imageLinks?.thumbnail?.replace('http://', 'https://') || '';
-            if (title === 'UNTITLED') {
-              title = volumeInfo.title || 'UNTITLED';
+          if (googleRes.ok) {
+            const googleData = await googleRes.json();
+            if (googleData.items && googleData.items.length > 0) {
+              const volumeInfo = googleData.items[0].volumeInfo;
+              coverUrl = volumeInfo.imageLinks?.thumbnail?.replace('http://', 'https://') || '';
+              if (title === 'UNTITLED') {
+                title = volumeInfo.title || 'UNTITLED';
+              }
             }
           }
         } catch (e) {

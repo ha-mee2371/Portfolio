@@ -50,14 +50,14 @@ function displayTeas(categoryFilter) {
 
   teaArticles.forEach(tea => {
     const brandName = tea.brand ? tea.brand.toUpperCase() : 'OTHER';
+    const filterName = categoryFilter.toUpperCase();
+    
     let isMatch = false;
 
-    if (categoryFilter === 'ALL') {
+    if (filterName === 'ALL') {
       isMatch = true;
-    } else if (categoryFilter === 'OTHER') {
-      isMatch = (brandName !== 'LUPICIA' && brandName !== 'KAREL CAPEK');
     } else {
-      isMatch = (brandName === categoryFilter);
+      isMatch = (brandName === filterName);
     }
 
     if (isMatch) {

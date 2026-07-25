@@ -23,6 +23,8 @@ buildChecker('checker-bot');
 let teaArticles = [];
 let currentCategory = 'ALL';
 
+const IMAGE_BASE_URL = 'https://raw.githubusercontent.com/ha-mee2371/Portfolio_TEA/main/';
+
 async function loadTeaData() {
   const DATA_URL = 'https://raw.githubusercontent.com/ha-mee2371/Portfolio_TEA/refs/heads/main/tea.json';
 
@@ -75,8 +77,13 @@ function displayTeas(categoryFilter) {
         rankClass = 'rank-3';
       }
 
-      const imageHtml = (tea.coverUrl && tea.coverUrl.trim() !== '') 
-        ? `<img src="${tea.coverUrl}" alt="${tea.title}" class="tea-img" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\\'no-image-box\\'><span class=\\'icon\\'>☕</span><span class=\\'text\\'>NO IMAGE</span></div>';">` 
+      let imgSrc = (tea.coverUrl && tea.coverUrl.trim() !== '') ? tea.coverUrl.trim() : '';
+      if (imgSrc && !imgSrc.startsWith('http://') && !imgSrc.startsWith('https://')) {
+        imgSrc = IMAGE_BASE_URL + imgSrc.replace(/^\//, '');
+      }
+
+      const imageHtml = (imgSrc !== '') 
+        ? `<img src="${imgSrc}" alt="${tea.title}" class="tea-img" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\\'no-image-box\\'><span class=\\'icon\\'>☕</span><span class=\\'text\\'>NO IMAGE</span></div>';">` 
         : `<div class="no-image-box">
              <span class="icon">☕</span>
              <span class="text">NO IMAGE</span>

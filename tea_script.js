@@ -70,10 +70,10 @@ function displayTeas(categoryFilter) {
         rankText = '🥰 REPEAT!';
         rankClass = 'rank-1';
       } else if (tea.rank === 2) {
-        rankText = '😊 GOOD!';
+        rankText = '🙂 GOOD!';
         rankClass = 'rank-2';
       } else if (tea.rank === 3) {
-        rankText = '☹ NOT FOR ME';
+        rankText = '😢 NOT FOR ME';
         rankClass = 'rank-3';
       }
 

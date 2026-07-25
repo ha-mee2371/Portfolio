@@ -120,15 +120,32 @@ body {
   margin-top: 16px;
 }
 
-/* ===== CATEGORY BUTTONS ===== */
+/* ===== CATEGORY BUTTONS (横スクロール化!) ===== */
 .filter-buttons {
   display: flex;
+  overflow-x: auto;  
+  white-space: nowrap; 
   gap: 8px;
   margin-bottom: 20px;
-  flex-wrap: wrap;
+  padding-bottom: 8px; 
+  -webkit-overflow-scrolling: touch; 
+}
+
+/* スクロールバーのデザイン */
+.filter-buttons::-webkit-scrollbar {
+  height: 5px;
+}
+.filter-buttons::-webkit-scrollbar-track {
+  background: #eae3d5;
+  border-radius: 3px;
+}
+.filter-buttons::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 3px;
 }
 
 .filter-btn {
+  flex-shrink: 0; 
   font-family: 'Bebas Neue', sans-serif;
   font-size: 15px;
   letter-spacing: 1px;

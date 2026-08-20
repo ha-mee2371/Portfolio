@@ -86,7 +86,6 @@ function renderSpots() {
       <div class="spot-icon">📍</div>
       <div class="spot-info">
         <div class="spot-title">${spot.title || 'Untitled'}</div>
-        <div class="spot-desc">${spot.comment || 'コメント無し'}</div>
       </div>
     `;
     listContainer.appendChild(card);
@@ -100,10 +99,8 @@ function openModal(index) {
   const modal = document.getElementById('modal-overlay');
   const modalTitle = document.getElementById('modal-title');
   const modalImgWrap = document.querySelector('.modal-image-wrap');
-  const modalComment = document.getElementById('modal-comment');
 
   modalTitle.textContent = spot.title || 'UNKNOWN SPOT';
-  modalComment.textContent = spot.comment || '';
 
   const fullUrl = getFullImageUrl(spot.imageUrl);
   if (fullUrl) {

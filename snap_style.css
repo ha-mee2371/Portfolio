@@ -198,14 +198,4 @@ body {
   object-fit: contain;
 }
 
-.modal-comment {
-  font-size: 13px;
-  color: #1a1a1a;
-  line-height: 1.5;
-  text-align: center;
-  width: 100%;
-  padding-top: 8px;
-  border-top: 1px dashed #d9d2c5;
-}
-
 .spacer { height: 20px; }

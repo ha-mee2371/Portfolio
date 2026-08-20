@@ -83,7 +83,6 @@ function openModal(index) {
   const modalComment = document.getElementById('modal-comment');
 
   modalImg.src = getFullImageUrl(photo.imageUrl);
-  modalComment.textContent = photo.comment || '';
 
   modal.classList.add('open');
 }

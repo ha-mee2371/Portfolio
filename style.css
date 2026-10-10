@@ -220,6 +220,24 @@ body {
   flex: 1; 
 }
 
+.top-img-wrap {
+  background: #fff;
+  border: 1px solid #d9d2c5;
+  border-left: 4px solid #1a1a1a;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.top-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* ===== FOOTER DINER ===== */
 .footer-diner {
   max-width: 430px;

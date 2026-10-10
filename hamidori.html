@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamidori - COZY DINER🥤🍔</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="snap_style.css">
+</head>
+<body>
+
+<div class="outer">
+  <!-- トップのチェッカー -->
+  <div class="checker-wrap">
+    <div class="checker" id="checker-top"></div>
+  </div>
+
+  <div class="inner">
+    <!-- ヘッダー・戻るリンク -->
+    <div class="header-nav">
+      <a href="index.html" class="back-btn">← BACK TO MENU</a>
+    </div>
+
+    <div class="hero">
+      <div class="hero-tag">WELCOME TO MY LIFE LOG</div>
+      <div class="hero-top-row">
+        <div class="hero-title">MY <span class="red">はみ撮り</span></div>
+        <img class="open-badge-img" src="images/open-badge.png" alt="OPEN 24 HOURS">
+      </div>
+      <div class="hero-sub">USJで買ったハミクマ4,400円号との思い出集です。いわゆる ぬい撮り 推し活 と呼ばれるものです。たまに違う子も出てきます。</div>
+    </div>
+
+    <div class="section-wrap">
+      <div class="section-label">— GALLERY —</div>
+
+      <div id="snap-container" class="snap-grid"></div>
+
+      <div class="spacer"></div>
+    </div>
+
+  </div>
+
+  <!-- フッターのチェッカーフラッグ -->
+  <div class="footer-checker-wrap">
+    <div class="footer-checker checker" id="checker-bot"></div>
+  </div>
+</div>
+
+<div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close-btn" onclick="closeModalDirect()">&times;</button>
+    <div class="modal-image-wrap">
+      <img id="modal-img" src="" alt="Hamidori Photo">
+    </div>
+  </div>
+</div>
+
+<script src="hamidori_script.js"></script>
+</body>
+</html>

@@ -220,60 +220,6 @@ body {
   flex: 1; 
 }
 
-/* ===== SPACER ===== */
-.spacer {
-  height: 24px;
-}
-
-/* ===== LATEST ORDER ===== */
-.latest-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 2px solid #1a1a1a;
-  padding-bottom: 6px;
-  margin-bottom: 12px;
-}
-
-.latest-header .section-label {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-/* HOT & FRESH 画像の大きさ・位置調整 */
-.hot-fresh-img-wrap {
-  flex-shrink: 0;
-  pointer-events: none;
-}
-.hot-fresh-img {
-  width: 95px; 
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-.latest-list {
-  width: 100%;
-}
-.latest-item {
-  margin-bottom: 12px;
-}
-.latest-date {
-  font-size: 11px;
-  color: #cc2222;
-  font-family: sans-serif; 
-  letter-spacing: 1px;
-  margin-bottom: 2px;
-}
-.latest-text {
-  font-size: 13px;
-  color: #1a1a1a;
-  font-family: sans-serif;
-  line-height: 1.5;
-  width: 100%; 
-}
-
 /* ===== FOOTER DINER ===== */
 .footer-diner {
   max-width: 430px;

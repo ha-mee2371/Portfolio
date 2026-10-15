@@ -20,102 +20,37 @@ function buildChecker(id) {
 buildChecker('checker-top');
 buildChecker('checker-bot');
 
-let teaArticles = [];
-let currentCategory = 'ALL';
+const pageTopBtn = document.getElementById('page-top-btn');
 
-const IMAGE_BASE_URL = 'https://raw.githubusercontent.com/ha-mee2371/Portfolio_TEA/main/';
-
-async function loadTeaData() {
-  const DATA_URL = 'https://raw.githubusercontent.com/ha-mee2371/Portfolio_TEA/refs/heads/main/tea.json';
-
-  try {
-    const response = await fetch(DATA_URL);
-    if (!response.ok) throw new Error('JSON load failed');
-    teaArticles = await response.json();
-    displayTeas('ALL');
-  } catch (error) {
-    console.error(error);
-    const container = document.getElementById('tea-container');
-    if (container) {
-      container.innerHTML = '<div style="grid-column:1/-1; font-size:12px; color:#666; text-align:center;">TEA LOG LOAD ERROR</div>';
-    }
-  }
-}
-
-function displayTeas(categoryFilter) {
-  const container = document.getElementById('tea-container');
-  if (!container) return; 
-  
-  container.innerHTML = '';
-
-  teaArticles.forEach(tea => {
-    const brandName = tea.brand ? tea.brand.toUpperCase() : 'OTHER';
-    const filterName = categoryFilter.toUpperCase();
-    
-    let isMatch = false;
-
-    if (filterName === 'ALL') {
-      isMatch = true;
+if (pageTopBtn) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      pageTopBtn.classList.add('is-show');
     } else {
-      isMatch = (brandName === filterName);
-    }
-
-    if (isMatch) {
-      const card = document.createElement('div');
-      card.className = 'tea-card';
-
-      let rankText = '';
-      let rankClass = '';
-      if (tea.rank === 1) {
-        rankText = '🥰 REPEAT!';
-        rankClass = 'rank-1';
-      } else if (tea.rank === 2) {
-        rankText = '🙂 GOOD!';
-        rankClass = 'rank-2';
-      } else if (tea.rank === 3) {
-        rankText = '😢 NOT FOR ME';
-        rankClass = 'rank-3';
-      }
-
-      let imgSrc = (tea.coverUrl && tea.coverUrl.trim() !== '') ? tea.coverUrl.trim() : '';
-      if (imgSrc && !imgSrc.startsWith('http://') && !imgSrc.startsWith('https://')) {
-        imgSrc = IMAGE_BASE_URL + imgSrc.replace(/^\//, '');
-      }
-
-      const imageHtml = (imgSrc !== '') 
-        ? `<img src="${imgSrc}" alt="${tea.title}" class="tea-img" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\\'no-image-box\\'><span class=\\'icon\\'>☕</span><span class=\\'text\\'>NO IMAGE</span></div>';">` 
-        : `<div class="no-image-box">
-             <span class="icon">☕</span>
-             <span class="text">NO IMAGE</span>
-           </div>`;
-
-      card.innerHTML = `
-        <div class="rank-badge ${rankClass}">${rankText}</div>
-        <div class="tea-image-wrap">
-          ${imageHtml}
-        </div>
-        <div class="tea-brand">${tea.brand}</div>
-        <div class="tea-title">${tea.title}</div>
-        <div class="tea-comment">${tea.comment || ''}</div>
-      `;
-
-      container.appendChild(card);
-    }
-  });
-}
-
-function filterCategory(categoryName) {
-  currentCategory = categoryName;
-  const buttons = document.querySelectorAll('.filter-btn');
-  buttons.forEach(btn => {
-    if (btn.textContent === categoryName) {
-      btn.classList.add('active');
-    } else {
-      btn.classList.remove('active');
+      pageTopBtn.classList.remove('is-show');
     }
   });
 
-  displayTeas(categoryName);
-}
+  pageTopBtn.addEventListener('click', () => {
+    const duration = 600; 
+    const startPosition = window.pageYOffset;
+    const startTime = performance.now();
 
-document.addEventListener('DOMContentLoaded', loadTeaData);
+    function scrollAnimation(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      const easeInOutQuad = progress < 0.5
+        ? 2 * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+      window.scrollTo(0, startPosition * (1 - easeInOutQuad));
+
+      if (progress < 1) {
+        requestAnimationFrame(scrollAnimation);
+      }
+    }
+
+    requestAnimationFrame(scrollAnimation);
+  });
+}

@@ -102,18 +102,37 @@ document.addEventListener('DOMContentLoaded', loadSnapData);
 const pageTopBtn = document.getElementById('page-top-btn');
 
 if (pageTopBtn) {
- window.addEventListener('scroll', () => {
+  // スクロール位置に応じてボタンを表示・非表示
+  window.addEventListener('scroll', () => {
     if (window.scrollY > 200) {
       pageTopBtn.classList.add('is-show');
     } else {
       pageTopBtn.classList.remove('is-show');
     }
   });
-  
+
+  // クリックされたら「ぬるっ」と時間をかけて上に戻る
   pageTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    const duration = 600; // 戻るのにかける時間（ミリ秒：600なら0.6秒。もっとゆっくりにしたい場合は 800 や 1000 に増やしてね）
+    const startPosition = window.pageYOffset;
+    const startTime = performance.now();
+
+    function scrollAnimation(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // イージング（最初はゆっくり、中頃スルスル、最後は優しく止まる動き）
+      const easeInOutQuad = progress < 0.5
+        ? 2 * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+      window.scrollTo(0, startPosition * (1 - easeInOutQuad));
+
+      if (progress < 1) {
+        requestAnimationFrame(scrollAnimation);
+      }
+    }
+
+    requestAnimationFrame(scrollAnimation);
   });
 }

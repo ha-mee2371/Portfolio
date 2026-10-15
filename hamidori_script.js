@@ -98,3 +98,22 @@ function closeModalDirect() {
 }
 
 document.addEventListener('DOMContentLoaded', loadSnapData);
+
+const pageTopBtn = document.getElementById('page-top-btn');
+
+if (pageTopBtn) {
+ window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      pageTopBtn.classList.add('is-show');
+    } else {
+      pageTopBtn.classList.remove('is-show');
+    }
+  });
+  
+  pageTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}

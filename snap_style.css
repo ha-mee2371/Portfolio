@@ -1,4 +1,4 @@
-- {
+* {
   box-sizing: border-box;
 }
 body {
@@ -200,38 +200,3 @@ body {
 }
 
 .spacer { height: 20px; }
-.page-top-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 44px;
-  height: 44px;
-  background-color: #cc2222; /* サイト全体のアクセント赤色 */
-  border: 2px solid #1a1a1a;   /* ダイナー風の黒い枠線 */
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,,0,0,0.2);
-  z-index: 998;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
-}
-.page-top-btn.is-show {
-  opacity: 1;
-  visibility: visible;
-}
-.page-top-btn:hover {
-  transform: scale(1.08);
-  background-color: #b51e1e;
-}
-.page-top-btn .arrow {
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-bottom: 11px solid #ffffff;
-  margin-bottom: 2px;
-}

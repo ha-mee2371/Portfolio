@@ -76,10 +76,8 @@ body {
 .hero-sub {
   font-size: 11px;
   color: #777;
-  font-family: sans-serif; 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-family: sans-serif;
+  line-height: 1.7;
 }
 .hero-note {
   font-size: 9px;
